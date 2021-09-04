@@ -1,0 +1,5 @@
+nav:
+  - index.md
+site_name: thtml
+theme:
+  name: readthedocs
