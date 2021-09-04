@@ -50,10 +50,12 @@ setup(
     packages=[
         "thtml",
         "thtml.scopes",
+        "thtml.version",
     ],
     package_data={
         "thtml": ["py.typed"],
         "thtml.scopes": ["py.typed"],
+        "thtml.version": ["py.typed"],
     },
     python_requires=">=3.8",
     url="https://github.com/cariad/thtml",
