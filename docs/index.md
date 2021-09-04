@@ -18,20 +18,22 @@ This one uses CSS:
 
 <!-- markdownlint-disable MD033 -->
 <style type="text/css">
-  .thtml-container {
+  .thtml {
     font-family: monospace;
   }
 
-  .thtml-container .fg-red {
+  .thtml .fg-red {
     color: #f00;
   }
 
-  .thtml-container .fg-green {
+  .thtml .fg-green {
     color: #0f0;
   }
 </style>
 
-<div class="thtml-container">
-  <span class="fg-red">Hello</span> <span class="fg-green">world!</span>
-</div>
+<pre class="thtml">
+  <code>
+    <span class="fg-red">Hello</span> <span class="fg-green">world!</span>
+  </code>
+</pre>
 <!-- markdownlint-enable MD033 -->
