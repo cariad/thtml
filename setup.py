@@ -36,7 +36,7 @@ setup(
     author="Cariad Eccleston",
     author_email="cariad@cariad.io",
     classifiers=classifiers,
-    description="thtml",
+    description="CLI tool and Python package for converting text to HTML",
     entry_points={
         "console_scripts": [
             "thtml=thtml.__main__:cli_entry",
@@ -49,9 +49,11 @@ setup(
     name="thtml",
     packages=[
         "thtml",
+        "thtml.scopes",
     ],
     package_data={
         "thtml": ["py.typed"],
+        "thtml.scopes": ["py.typed"],
     },
     python_requires=">=3.8",
     url="https://github.com/cariad/thtml",
