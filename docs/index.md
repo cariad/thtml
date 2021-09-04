@@ -31,7 +31,9 @@ This one uses CSS:
   }
 </style>
 
-<pre class="thtml">
+<!-- "nohighlight" prevents highlight.js taking over the styling -->
+
+<pre class="nohighlight thtml">
   <code>
     <span class="fg-red">Hello</span> <span class="fg-green">world!</span>
   </code>
