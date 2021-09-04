@@ -1,5 +1,9 @@
 nav:
   - index.md
+  - cli.md
+  - python.md
 site_name: thtml
 theme:
   name: readthedocs
+markdown_extensions:
+  - admonition
