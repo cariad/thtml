@@ -4,12 +4,17 @@ from thtml.version import get_version
 
 
 def cli_entry() -> None:
-    parser = ArgumentParser(
-        prog=f"thtml v{get_version()}",
-        description="Converts text to HTML.",
+    parser = ArgumentParser(description="Converts text to HTML.")
+    parser.add_argument(
+        "--version",
+        action="store_true",
+        help="output version then exit",
     )
     args = parser.parse_args()
-    print(args)
+
+    if args.version:
+        print(get_version())
+        exit(0)
 
 
 if __name__ == "__main__":
