@@ -1,1 +1,3 @@
+include thtml/scopes/document.html
+include thtml/scopes/fragment.html
 include thtml/version/VERSION
