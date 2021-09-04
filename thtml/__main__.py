@@ -7,7 +7,7 @@ from tempfile import NamedTemporaryFile
 from time import sleep
 from webbrowser import open as open_web
 
-from thtml import render
+from thtml import get_version, render
 from thtml.options import Scope
 
 
@@ -42,6 +42,10 @@ def cli_entry() -> None:
     )
 
     args, extras = parser.parse_known_args()
+
+    if args.version:
+        print(get_version())
+        exit(0)
 
     if args.command:
         with BytesIO() as script:
