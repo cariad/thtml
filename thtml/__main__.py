@@ -1,20 +1,23 @@
 from argparse import ArgumentParser
-from sys import stderr, stdin
+from io import BytesIO
+from os import read
+from pty import spawn
+from sys import stdin
 from tempfile import NamedTemporaryFile
 from time import sleep
 from webbrowser import open as open_web
 
-from thtml import render
+from thtml import get_version, render
 from thtml.options import Scope
-from thtml.version import get_version
 
 
 def cli_entry() -> None:
-    parser = ArgumentParser(description="Converts text to HTML.")
+    parser = ArgumentParser(description="Converts text to HTML.", add_help=False)
     parser.add_argument(
-        "file",
-        help="optional file to read (default is stdin)",
-        nargs="?",
+        "-c",
+        "--command",
+        help="command",
+        action="store_true",
     )
 
     parser.add_argument(
@@ -38,23 +41,32 @@ def cli_entry() -> None:
         help="shows the version",
     )
 
-    args = parser.parse_args()
+    args, extras = parser.parse_known_args()
 
     if args.version:
         print(get_version())
         exit(0)
 
-    if args.file:
-        try:
-            with open(args.file, "r") as f:
-                body = f.read()
-        except FileNotFoundError:
-            print(f"file not found: {args.file}", file=stderr)
-            exit(1)
+    if args.command:
+        with BytesIO() as script:
+
+            def read_chunk(fd: int) -> bytes:
+                data = read(fd, 1024)
+                script.write(data)
+                return data
+
+            # Executive decision: we don't support passing stdin to child.
+            spawn(extras, read_chunk)
+            script.flush()
+            script.seek(0)
+            body = script.read().decode("UTF-8")
+
     else:
         body = stdin.read()
 
     html = render(body=body, scope=Scope(args.scope))
+
+    print(html)
 
     if args.open:
         with NamedTemporaryFile() as temp:
@@ -64,8 +76,6 @@ def cli_entry() -> None:
             # Give the browser a chance to open and grab the temporary file
             # before we delete it:
             sleep(1)
-    else:
-        print(html)
 
 
 if __name__ == "__main__":
