@@ -46,6 +46,7 @@ setup(
     install_requires=[
         "ansiscape",
         "naughtty",
+        "pyyaml",
     ],
     license="MIT",
     long_description=long_description,
