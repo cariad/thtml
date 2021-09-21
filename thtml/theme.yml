@@ -1,0 +1,455 @@
+# These default classes will always be added to the render.
+
+defaults:
+  # The first class in this list will hold all the other variables that we need
+  # to declare for a render.
+  - name: thtml
+    headers:
+      - "@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400&display=swap');"
+    variables:
+      - black
+      - default-font
+      - white
+    styles:
+      font-family: var(--default-font)
+      letter-spacing: 0.03rem
+      background: var(--black)
+      color: var(--white)
+      width: max-content
+      padding: 2rem
+      border-radius: 1rem
+
+  - name: thtml-code
+    styles:
+      font-family: inherit
+
+# These variables will be added to the first default class only as/when a class
+# is added that uses them.
+variables:
+  black: "#000"
+  default-font: "'Roboto Mono'"
+  white: "#CCC"
+  blue: "#00C"
+  bright-black: "#888"
+  bright-blue: "#00F"
+  bright-cyan: "#0FF"
+  bright-green: "#0F0"
+  bright-magenta: "#F0F"
+  bright-red: "#F00"
+  bright-white: "#FFF"
+  bright-yellow: "#FF0"
+  green: "#0C0"
+  cyan: "#0CC"
+  magenta: "#C0C"
+  red: "#C00"
+  yellow: "#CC0"
+
+classes:
+  - name: background-black
+    styles:
+      background: var(--black)
+
+  - name: background-blue
+    styles:
+      background: var(--blue)
+    variables:
+      - blue
+
+  - name: background-bright-black
+    styles:
+      background: var(--bright-black)
+    variables:
+      - bright-black
+
+  - name: background-bright-blue
+    styles:
+      background: var(--bright-blue)
+    variables:
+      - bright-blue
+
+  - name: background-bright-green
+    styles:
+      background: var(--bright-green)
+    variables:
+      - bright-green
+
+  - name: background-bright-cyan
+    styles:
+      background: var(--bright-cyan)
+    variables:
+      - bright-cyan
+
+  - name: background-bright-magenta
+    styles:
+      background: var(--bright-magenta)
+    variables:
+      - bright-magenta
+
+  - name: background-bright-red
+    styles:
+      background: var(--bright-red)
+    variables:
+      - bright-red
+
+  - name: background-bright-white
+    styles:
+      background: var(--bright-white)
+    variables:
+      - bright-white
+
+  - name: background-bright-yellow
+    styles:
+      background: var(--bright-yellow)
+    variables:
+      - bright-yellow
+
+  - name: background-cyan
+    styles:
+      background: var(--bright-cyan)
+    variables:
+      - cyan
+
+  - name: background-default
+    styles:
+      background: var(--black)
+
+  - name: background-green
+    styles:
+      background: var(--green)
+    variables:
+      - green
+
+  - name: background-magenta
+    styles:
+      background: var(--magenta)
+    variables:
+      - magenta
+
+  - name: background-red
+    styles:
+      background: var(--red)
+    variables:
+      - red
+
+  - name: background-white
+    styles:
+      background: var(--white)
+
+  - name: background-yellow
+    styles:
+      background: var(--yellow)
+    variables:
+      - yellow
+
+  - name: calligraphy-blackletter
+    headers:
+      - "@import url('https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap');"
+    styles:
+      font-family: UnifrakturMaguntia
+      font-size: 1.2rem
+
+  - name: calligraphy-italic
+    headers:
+      - "@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@1,400&display=swap');"
+    styles:
+      font-style: italic
+
+  - name: font-alt-0
+    headers:
+      - "@import url('https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap');"
+    styles:
+      font-family: "'Syne Mono'"
+
+  - name: font-alt-1
+    headers:
+      - "@import url('https://fonts.googleapis.com/css2?family=Nova+Mono&display=swap');"
+    styles:
+      font-family: "'Nova Mono'"
+
+  - name: font-alt-2
+    headers:
+      - "@import url('https://fonts.googleapis.com/css2?family=Xanh+Mono&display=swap');"
+    styles:
+      font-family: "'Xanh Mono'"
+
+  - name: font-alt-3
+    headers:
+      - "@import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap');"
+    styles:
+      font-family: "'Major Mono Display'"
+
+  - name: font-alt-4
+    headers:
+      - "@import url('https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap');"
+    styles:
+      font-family: "'Cutive Mono'"
+
+  - name: font-alt-5
+    headers:
+      - "@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');"
+    styles:
+      font-family: "'VT323'"
+
+  - name: font-alt-6
+    headers:
+      - "@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap');"
+    styles:
+      font-family: "'Nanum Gothic Coding'"
+
+  - name: font-alt-7
+    headers:
+      - "@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');"
+    styles:
+      font-family: "'Share Tech Mono'"
+
+  - name: ont-alt-8
+    headers:
+      - "@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap');"
+    styles:
+      font-family: "'Ubuntu Mono'"
+
+  - name: font-default
+    styles:
+      font-family: var(--default-font)
+
+  - name: foreground-black
+    styles:
+      border-color: var(--black)
+      color: var(--black)
+
+  - name: foreground-blue
+    styles:
+      border-color: var(--blue)
+      color: var(--blue)
+    variables:
+      - blue
+
+  - name: foreground-default
+    styles:
+      border-color: var(--white)
+      color: var(--white)
+
+  - name: foreground-yellow
+    styles:
+      border-color: var(--yellow)
+      color: var(--yellow)
+    variables:
+      - yellow
+
+  - name: foreground-bright-black
+    styles:
+      border-color: var(--bright-black)
+      color: var(--bright-black)
+    variables:
+      - bright-black
+
+  - name: foreground-bright-blue
+    styles:
+      border-color: var(--bright-blue)
+      color: var(--bright-blue)
+    variables:
+      - bright-blue
+
+  - name: foreground-bright-green
+    styles:
+      border-color: var(--bright-green)
+      color: var(--bright-green)
+    variables:
+      - bright-green
+
+  - name: foreground-bright-cyan
+    styles:
+      border-color: var(--bright-cyan)
+      color: var(--bright-cyan)
+    variables:
+      - bright-cyan
+
+  - name: foreground-bright-magenta
+    styles:
+      border-color: var(--bright-magenta)
+      color: var(--bright-magenta)
+    variables:
+      - bright-magenta
+
+  - name: foreground-bright-red
+    styles:
+      border-color: var(--bright-red)
+      color: var(--bright-red)
+    variables:
+      - bright-red
+
+  - name: foreground-bright-white
+    styles:
+      border-color: var(--bright-white)
+      color: var(--bright-white)
+    variables:
+      - bright-white
+
+  - name: foreground-bright-yellow
+    styles:
+      border-color: var(--bright-yellow)
+      color: var(--bright-yellow)
+    variables:
+      - bright-yellow
+
+  - name: foreground-cyan
+    styles:
+      border-color: var(--cyan)
+      color: var(--cyan)
+    variables:
+      - cyan
+
+  - name: foreground-green
+    styles:
+      border-color: var(--green)
+      color: var(--green)
+    variables:
+      - green
+
+  - name: foreground-magenta
+    styles:
+      border-color: var(--magenta)
+      color: var(--magenta)
+    variables:
+      - magenta
+
+  - name: foreground-red
+    styles:
+      border-color: var(--red)
+      color: var(--red)
+    variables:
+      - red
+
+  - name: foreground-white
+    styles:
+      border-color: var(--white)
+      color: var(--white)
+
+  - name: frame-box
+    # I don't know what this means, so here's a border.
+    styles:
+      border: 0.2rem solid
+      padding-left: 0.4rem
+      padding-right: 0.4rem
+
+  - name: frame-circle
+    # I don't know what this means, so here's a border.
+    styles:
+      border: 0.2rem solid
+      border-radius: 2rem
+      padding-left: 0.8rem
+      padding-right: 0.8rem
+
+  - name: frame-none
+    # I don't know what this means, so here's no border.
+    styles:
+      border: "none"
+
+  - name: ideogram-double-line-over-or-left
+    # I don't know what this means, so here's a border.
+    styles:
+      border-left: 0.4rem double
+      padding-left: 0.4rem
+
+  - name: ideogram-double-line-under-or-right
+    # I don't know what this means, so here's a border.
+    styles:
+      border-right: 0.4rem double
+      padding-right: 0.4rem
+
+  - name: ideogram-none
+    # I don't know what this means, so here's no border.
+    styles:
+      border: "none"
+
+  - name: ideogram-single-line-over-or-left
+    # I don't know what this means, so here's a border.
+    styles:
+      border-left: 0.2rem solid
+      padding-left: 0.4rem
+
+  - name: ideogram-single-line-under-or-right
+    # I don't know what this means, so here's a border.
+    styles:
+      border-right: 0.2rem solid
+      padding-right: 0.4rem
+
+  - name: ideogram-stress
+    # I don't know what this means, so here's a border.
+    styles:
+      border: 0.2rem dotted
+      padding-left: 0.4rem
+      padding-right: 0.4rem
+
+  - name: proportional-spacing-false
+
+  - name: proportional-spacing-true
+    headers:
+      - "@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;1,300;0,400;1,400;0,700;1,700&display=swap');"
+    styles:
+      font-family: Roboto, sans-serif
+
+  - name: strike-true
+    styles:
+      text-decoration: line-through
+
+  - name: weight-heavy
+    headers:
+      - "@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,700;1,700&display=swap');"
+    styles:
+      font-weight: 700
+
+  - name: weight-light
+    headers:
+      - "@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;1,300&display=swap');"
+    styles:
+      font-weight: 300
+
+  - name: conceal-true
+    styles:
+      opacity: 0
+
+  - name: invert-true
+    styles:
+      background: var(--white)
+      color: var(--black)
+
+  - name: overline-true
+    styles:
+      text-decoration: overline
+
+  - name: underline-single
+    styles:
+      text-decoration: solid underline
+      text-underline-offset: 0.1rem
+
+  - name: underline-double
+    styles:
+      text-decoration: double underline
+      text-underline-offset: 0.1rem
+
+  - name: underline-none
+
+
+  - name: weight-normal
+
+  - name: blink-none
+  - name: calligraphy-none
+  - name: invert-false
+  - name: conceal-false
+  - name: overline-false
+  - name: strike-false
+
+  - name: blink-fast
+    headers:
+      - "@keyframes blink { from { opacity: 1.0; } to { opacity: 0.0; } }"
+    styles:
+      # ECMA 48: > 150 per minute
+      animation: blink 0.2s ease-in-out infinite alternate
+
+  - name: blink-slow
+    headers:
+      - "@keyframes blink { from { opacity: 1.0; } to { opacity: 0.0; } }"
+    styles:
+      # ECMA 48: < 150 per minute
+      animation: blink 1.2s ease-in-out infinite alternate

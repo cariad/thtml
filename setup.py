@@ -36,13 +36,18 @@ setup(
     author="Cariad Eccleston",
     author_email="cariad@cariad.io",
     classifiers=classifiers,
-    description="CLI tool and Python package for converting text to HTML",
+    description="CLI tool for converting text to HTML",
     entry_points={
         "console_scripts": [
             "thtml=thtml.__main__:cli_entry",
         ],
     },
     include_package_data=True,
+    install_requires=[
+        "ansiscape",
+        "naughtty",
+        "pyyaml",
+    ],
     license="MIT",
     long_description=long_description,
     long_description_content_type="text/markdown",
@@ -50,11 +55,13 @@ setup(
     packages=[
         "thtml",
         "thtml.scopes",
+        "thtml.theming",
         "thtml.version",
     ],
     package_data={
         "thtml": ["py.typed"],
         "thtml.scopes": ["py.typed"],
+        "thtml.theming": ["py.typed"],
         "thtml.version": ["py.typed"],
     },
     python_requires=">=3.8",
