@@ -20,7 +20,7 @@ Include `--open` to send the HTML directly to your default browser:
 ls -al --color | thtml --open
 ```
 
-![](docs/ls.png)
+![Directory listing passed through thtml](https://github.com/cariad/thtml/raw/main/docs/ls.png)
 
 Full documentation: [thtml.readthedocs.io](https://thtml.readthedocs.io)
 
@@ -43,7 +43,7 @@ COMMAND | thtml
 If your command needs to run in a pseudo-terminal to emit formatting escape codes:
 
 ```bash
-thtml --command COMMAND
+thtml COMMAND
 ```
 
 By default, `thtml` will write the HTML to stdout. To send the HTML to your default browser:
