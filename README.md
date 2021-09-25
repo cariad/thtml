@@ -29,7 +29,7 @@ Full documentation: [thtml.readthedocs.io](https://thtml.readthedocs.io)
 `thtml` requires Python 3.8 or later.
 
 ```bash
-pip install html
+pip install thtml
 ```
 
 ## CLI usage
