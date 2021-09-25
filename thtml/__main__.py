@@ -7,7 +7,7 @@ from webbrowser import open as open_web
 from naughtty import NaughTTY
 
 from thtml import get_version
-from thtml.cli import write
+from thtml.cli import write_html
 from thtml.options import Scope
 
 
@@ -51,12 +51,12 @@ def cli_entry() -> None:
 
     if args.open:
         with NamedTemporaryFile("a+") as temp:
-            write(body, Scope(args.scope), temp)
+            write_html(text=body, scope=Scope(args.scope), writer=temp)
             open_web(f"file://{temp.name}")
             # Give the browser a chance to open the file before we delete it:
             sleep(1)
     else:
-        write(body, Scope(args.scope), stdout)
+        write_html(text=body, scope=Scope(args.scope), writer=stdout)
 
 
 if __name__ == "__main__":

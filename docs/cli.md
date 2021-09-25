@@ -2,24 +2,22 @@
 
 ## Input
 
-**In theory,** `thtml` will convert piped text to HTML.
+In most cases, you can simply pipe a command's output into `thtml`:
 
 ```bash
 echo "Hello, world!" | thtml
 ```
 
-**However,** many applications will detect that they're running non-interactively and will "clean up" their output, including removing colour codes. For example, `pipenv --help` will present colourful notes, but `pipenv --help | cat` filters out the color.
+However, many applications will detect that they're running non-interactively and will "clean up" their output, including removing colour codes. For example, `pipenv --help` will present colourful notes, but `pipenv --help | cat` filters out the color.
 
-If your application filters its output when run non-interactively, you can have `thtml` run the command in a pseudo terminal via the `-c` or `--command` argument.
+If your application filters its output when run non-interactively, you can have `thtml` run the command in a pseudo terminal by passing the command as arguments:
 
 ```bash
-thtml --command pipenv --help
+thtml pipenv --help
 ```
 
 !!! warning "Windows"
-    At the time of writing, the `-c`/`--command` arguments probably won't work in Windows due to lack of support for pseudo terminals.
-
-
+    At the time of writing, these arguments probably won't work in Windows due to lack of support for pseudo terminals.
 
 ## Output
 
