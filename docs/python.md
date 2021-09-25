@@ -1,19 +1,14 @@
 # Python usage
 
-Import `render` and pass in the string to convert to HTML.
+Import `write_html` then pass in the string convert to HTML and the `Scope` of the document to generate.
 
 ```python
-from thtml import render
+from thtml import write_html, Scope
 
-html = render("Hello, world!")
-print(html)
-```
-
-By default, `render()` will return an entire HTML document. To return only a fragment -- say, to insert into your own `<body>` element -- pass a `Scope`.
-
-```python
-from thtml import render, Scope
-
-html = render("Hello, world!", scope.FRAGMENT)
-print(html)
+with open("hello.html", "w") as writer:
+    write_html(
+        "\033[1mHello, world!\033[22m",
+        Scope.DOCUMENT,
+        writer,
+    )
 ```

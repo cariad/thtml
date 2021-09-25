@@ -10,7 +10,11 @@ from thtml.scopes import ScopeHtmlParser
 from thtml.theming import StyleFragment
 
 
-def write(body: str, scope: Scope, writer: IO[str]) -> None:
+def write_html(text: str, writer: IO[str], scope: Scope = Scope.DOCUMENT) -> None:
+    """
+    Translates `text` to HTML and writes a fragment of `scope` to `writer`.
+    """
+
     with open_text(__package__, "theme.yml") as t:
         theme_dict = safe_load(t)
 
@@ -20,7 +24,7 @@ def write(body: str, scope: Scope, writer: IO[str]) -> None:
     theme_dict["variables"] = theme_dict.get("variables", {})
 
     style_fragment = StyleFragment(theme_dict)
-    body_fragment = BodyFragment(body=body, style=style_fragment)
+    body_fragment = BodyFragment(body=text, style=style_fragment)
 
     with TemporaryFile("a+") as body_io:
         with TemporaryFile("a+") as style_io:

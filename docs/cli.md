@@ -19,8 +19,6 @@ thtml --command pipenv --help
 !!! warning "Windows"
     At the time of writing, the `-c`/`--command` arguments probably won't work in Windows due to lack of support for pseudo terminals.
 
-
-
 ## Output
 
 `thtml` sends the generated HTML to _stdout_. Redirect the output to write to a file.
