@@ -54,9 +54,16 @@ class StyleFragment:
                 return True
         return False
 
-    def use_class(self, name: str) -> None:
+    def use_class(self, name: str) -> bool:
+        """
+        Marks a class for inclusion in the render. Returns `False` if the class
+        is not defined in the theme.
+        """
+
         if theme_class_dict := self.find_class(name):
             self.add_class(values=theme_class_dict)
+            return True
+        return False
 
     def write(self, writer: IO[str]) -> None:
         if not self.headers and not self.has_classes:
