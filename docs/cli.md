@@ -42,3 +42,11 @@ Send the HTML directly to the default browser by adding the `-o` or `--open` arg
 ```bash
 echo "Hello, world!" | thtml --open
 ```
+
+## Custom theme
+
+Use a custom [theme](theme.md) by adding the `-t` or `--theme` argument.
+
+```bash
+echo "Hello, world!" | thtml --theme custom.yml
+```

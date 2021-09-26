@@ -4,7 +4,7 @@ from typing import List
 from pytest import mark
 
 from thtml.theming.style_fragment import StyleFragment
-from thtml.theming.theme import ThemeDict
+from thtml.theming.theme import Theme
 from thtml.theming.theme_class import ThemeClassDict
 
 
@@ -18,7 +18,7 @@ from thtml.theming.theme_class import ThemeClassDict
         ),
     ],
 )
-def test_init(theme: ThemeDict, expect: str) -> None:
+def test_init(theme: Theme, expect: str) -> None:
     fragment = StringIO()
     StyleFragment(theme).write(fragment)
     assert fragment.getvalue() == expect
@@ -116,7 +116,7 @@ def test_init(theme: ThemeDict, expect: str) -> None:
     ],
 )
 def test_add_class(
-    theme: ThemeDict,
+    theme: Theme,
     classes: List[ThemeClassDict],
     expect: str,
 ) -> None:
@@ -143,7 +143,7 @@ def test_find_class(
     name: str,
     expect: ThemeClassDict,
 ) -> None:
-    theme: ThemeDict = {"defaults": [], "classes": classes, "variables": {}}
+    theme: Theme = {"defaults": [], "classes": classes, "variables": {}}
     assert StyleFragment(theme).find_class(name) == expect
 
 
@@ -191,7 +191,7 @@ def test_has_classes(classes: List[ThemeClassDict], expect: bool) -> None:
         ),
     ],
 )
-def test_use_class(theme: ThemeDict, name: str, expect: str) -> None:
+def test_use_class(theme: Theme, name: str, expect: str) -> None:
     sf = StyleFragment(theme)
     sf.use_class(name)
     fragment = StringIO()

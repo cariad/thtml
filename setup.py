@@ -55,12 +55,14 @@ setup(
     packages=[
         "thtml",
         "thtml.scopes",
+        "thtml.themes",
         "thtml.theming",
         "thtml.version",
     ],
     package_data={
         "thtml": ["py.typed"],
         "thtml.scopes": ["py.typed"],
+        "thtml.themes": ["py.typed"],
         "thtml.theming": ["py.typed"],
         "thtml.version": ["py.typed"],
     },

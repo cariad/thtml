@@ -2,6 +2,7 @@ nav:
   - index.md
   - cli.md
   - python.md
+  - theme.md
 site_name: thtml
 theme:
   name: readthedocs

@@ -17,3 +17,14 @@ from thtml import write_html, Scope
 with open("hello.html", "w") as writer:
     write_html("\033[1mHello, world!\033[22m", writer, scope=Scope.FRAGMENT)
 ```
+
+To use a custom [theme](theme.md):
+
+```python
+from thtml import write_html, Theme
+
+theme: Theme = {...}
+
+with open("hello.html", "w") as writer:
+    write_html("\033[1mHello, world!\033[22m", writer, theme=theme)
+```
