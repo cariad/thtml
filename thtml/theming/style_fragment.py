@@ -1,6 +1,6 @@
 from typing import IO, Dict, List, Optional
 
-from thtml.theming.theme import ThemeDict
+from thtml.theming.theme import Theme
 from thtml.theming.theme_class import ThemeClass, ThemeClassDict
 from thtml.types import VariableName, VariableValue
 
@@ -8,7 +8,7 @@ from thtml.types import VariableName, VariableValue
 class StyleFragment:
     """Describes a `<style>...</style>` HTML fragment."""
 
-    def __init__(self, theme: ThemeDict) -> None:
+    def __init__(self, theme: Theme) -> None:
 
         self.headers: List[str] = []
         """@import, @keyframes, etc. to inject at the top of the block."""

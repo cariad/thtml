@@ -1,4 +1,4 @@
 include thtml/scopes/document.html
 include thtml/scopes/fragment.html
-include thtml/theme.yml
+include thtml/themes/default.yml
 include thtml/version/VERSION

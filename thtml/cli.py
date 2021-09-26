@@ -1,29 +1,44 @@
-from importlib.resources import open_text
 from tempfile import TemporaryFile
-from typing import IO
+from typing import IO, Optional, Union
 
 from yaml import safe_load
 
 from thtml.body_fragment import BodyFragment
 from thtml.options import Scope
 from thtml.scopes import ScopeHtmlParser
-from thtml.theming import StyleFragment
+from thtml.themes import load_package_theme
+from thtml.theming import StyleFragment, Theme
 
 
-def write_html(text: str, writer: IO[str], scope: Scope = Scope.DOCUMENT) -> None:
-    """
-    Translates `text` to HTML and writes a fragment of `scope` to `writer`.
-    """
-
-    with open_text(__package__, "theme.yml") as t:
-        theme_dict = safe_load(t)
+def load_theme(source: Optional[str]) -> Theme:
+    if source is None:
+        theme_dict = load_package_theme()
+    else:
+        with open(source, "r") as t:
+            theme_dict = safe_load(t)
 
     # Set any missing defaults:
     theme_dict["classes"] = theme_dict.get("classes", [])
     theme_dict["defaults"] = theme_dict.get("defaults", [])
     theme_dict["variables"] = theme_dict.get("variables", {})
+    return theme_dict
 
-    style_fragment = StyleFragment(theme_dict)
+
+def write_html(
+    text: str,
+    writer: IO[str],
+    theme: Optional[Union[str, Theme]] = None,
+    scope: Scope = Scope.DOCUMENT,
+) -> None:
+    """
+    Translates `text` to HTML and writes a fragment of `scope` to `writer` using
+    theme `theme`.
+    """
+
+    if not isinstance(theme, dict):
+        theme = load_theme(theme)
+
+    style_fragment = StyleFragment(theme)
     body_fragment = BodyFragment(body=text, style=style_fragment)
 
     with TemporaryFile("a+") as body_io:
