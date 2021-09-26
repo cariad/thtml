@@ -43,7 +43,8 @@ class BodyFragment:
     def write(self, writer: IO[str]) -> None:
         sequence = Sequence(self.body)
 
-        is_first_span = True
+        # is_first_span = True
+        has_open_span = False
 
         for resolution in sequence.resolved:
             if isinstance(resolution, str):
@@ -55,17 +56,23 @@ class BodyFragment:
                 writer.write(resolution)
                 continue
 
-            if is_first_span:
-                is_first_span = False
-            else:
+            if has_open_span:
                 writer.write("</span>")
+                has_open_span = False
 
-            self.write_span(interpretation=resolution, writer=writer)
+            if self.write_span(resolution, writer):
+                has_open_span = True
 
-        if not is_first_span:
+        if has_open_span:
             writer.write("</span>")
 
-    def write_span(self, interpretation: Interpretation, writer: IO[str]) -> None:
+    def write_span(self, interpretation: Interpretation, writer: IO[str]) -> bool:
+        """
+        Attempts to writes a `<span>` element for the given interpretation. Will
+        not write a `<span>` if the interpretation uses a class that isn't
+        defined in the theme. Returns `False` if a span was not written.
+        """
+
         classes: List[str] = []
         styles: List[str] = []
 
@@ -76,8 +83,11 @@ class BodyFragment:
                 styles.append(BodyFragment.make_rgba(color=cast(RGBA, value), key=key))
             else:
                 class_name = BodyFragment.to_class_name(key, value)
-                classes.append(class_name)
-                self.style.use_class(class_name)
+                if self.style.use_class(class_name):
+                    classes.append(class_name)
+
+        if not classes and not styles:
+            return False
 
         writer.write("<span")
 
@@ -88,3 +98,4 @@ class BodyFragment:
             writer.write(f' style="{" ".join(styles)}"')
 
         writer.write(">")
+        return True

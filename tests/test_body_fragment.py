@@ -65,10 +65,7 @@ def test_write() -> None:
     )
     writer = StringIO()
     BodyFragment("\033[1mHello, world!\033[22m", style).write(writer)
-    assert (
-        writer.getvalue()
-        == '<span class="weight-heavy">Hello, world!</span><span class="weight-normal"></span>'
-    )
+    assert writer.getvalue() == '<span class="weight-heavy">Hello, world!</span>'
 
 
 def test_write__no_formatting() -> None:
