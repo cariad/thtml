@@ -30,6 +30,12 @@ def cli_entry() -> None:
     )
 
     parser.add_argument(
+        "-t",
+        "--theme",
+        help="path to custom theme YAML file",
+    )
+
+    parser.add_argument(
         "--version",
         action="store_true",
         help="shows the version",
@@ -51,12 +57,23 @@ def cli_entry() -> None:
 
     if args.open:
         with NamedTemporaryFile("a+") as temp:
-            write_html(text=body, scope=Scope(args.scope), writer=temp)
+            write_html(
+                text=body,
+                scope=Scope(args.scope),
+                writer=temp,
+                theme=args.theme,
+            )
             open_web(f"file://{temp.name}")
             # Give the browser a chance to open the file before we delete it:
             sleep(1)
-    else:
-        write_html(text=body, scope=Scope(args.scope), writer=stdout)
+            return
+
+    write_html(
+        text=body,
+        scope=Scope(args.scope),
+        writer=stdout,
+        theme=args.theme,
+    )
 
 
 if __name__ == "__main__":
