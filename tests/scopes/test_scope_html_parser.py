@@ -1,5 +1,4 @@
 from io import StringIO
-from typing import List
 
 from pytest import mark, raises
 
@@ -19,16 +18,15 @@ def test_get_template(scope: Scope, expect_len: int) -> None:
 
 
 @mark.parametrize(
-    "path, data, expect",
+    "data, expect",
     [
-        ([], "foo\nbar", "foobar"),
-        (["code"], "foo\nbar", "foo\nbar"),
+        ("foo\nbar", "foobar"),
+        ("foo\nbar\n", "foobar"),
     ],
 )
-def test_handle_data(path: List[str], data: str, expect: str) -> None:
+def test_handle_data(data: str, expect: str) -> None:
     writer = StringIO()
     p = ScopeHtmlParser(body_io=StringIO(), style_io=StringIO(), writer=writer)
-    p.path = path
     p.handle_data(data)
     assert writer.getvalue() == expect
 
