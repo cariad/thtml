@@ -109,10 +109,6 @@ classes:
     variables:
       - cyan
 
-  - name: background-default
-    styles:
-      background: var(--black)
-
   - name: background-green
     styles:
       background: var(--green)
@@ -381,8 +377,6 @@ classes:
       padding-left: 0.4rem
       padding-right: 0.4rem
 
-  - name: proportional-spacing-false
-
   - name: proportional-spacing-true
     headers:
       - "@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;1,300;0,400;1,400;0,700;1,700&display=swap');"
@@ -427,18 +421,6 @@ classes:
     styles:
       text-decoration: double underline
       text-underline-offset: 0.1rem
-
-  - name: underline-none
-
-
-  - name: weight-normal
-
-  - name: blink-none
-  - name: calligraphy-none
-  - name: invert-false
-  - name: conceal-false
-  - name: overline-false
-  - name: strike-false
 
   - name: blink-fast
     headers:
