@@ -61,8 +61,19 @@ class StyleFragment:
         """
 
         if theme_class_dict := self.find_class(name):
-            self.add_class(values=theme_class_dict)
+            if not self.uses_class(name):
+                self.add_class(values=theme_class_dict)
             return True
+        return False
+
+    def uses_class(self, name: str) -> bool:
+        """
+        Returns `True` if the specified class has been added to the render.
+        """
+
+        for c in self._classes:
+            if c.name == name:
+                return True
         return False
 
     def write(self, writer: IO[str]) -> None:

@@ -43,13 +43,12 @@ class BodyFragment:
     def write(self, writer: IO[str]) -> None:
         sequence = Sequence(self.body)
 
-        # is_first_span = True
         has_open_span = False
 
         for resolution in sequence.resolved:
             if isinstance(resolution, str):
                 while "\n " in resolution:
-                    resolution = resolution.replace("\n ", "\n&nbsp;")
+                    resolution = resolution.replace("\n", "<br />")
                 writer.write(resolution)
                 continue
 
