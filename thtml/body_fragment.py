@@ -47,8 +47,8 @@ class BodyFragment:
 
         for resolution in sequence.resolved:
             if isinstance(resolution, str):
-                while "\n " in resolution:
-                    resolution = resolution.replace("\n", "<br />")
+                resolution = resolution.replace("\r\n", "<br />")
+                resolution = resolution.replace("\n", "<br />")
                 writer.write(resolution)
                 continue
 

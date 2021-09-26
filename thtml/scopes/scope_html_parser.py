@@ -32,10 +32,7 @@ class ScopeHtmlParser(HTMLParser):
             return t.read().strip()
 
     def handle_data(self, data: str) -> None:
-        if "code" not in self.path:
-            data = data.replace("\n", "")
-
-        self.writer.write(data)
+        self.writer.write(data.replace("\n", ""))
 
     def handle_decl(self, decl: str) -> None:
         self.writer.write(f"<!{decl}>")
