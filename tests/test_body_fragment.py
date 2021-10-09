@@ -50,7 +50,17 @@ def test_to_class_name(key: str, name: Any, expect: str) -> None:
     assert BodyFragment.to_class_name(key, name) == expect
 
 
-def test_write() -> None:
+@mark.parametrize(
+    "body, expect",
+    [
+        (
+            "\033[1mHello, world!\033[22m",
+            '<span class="weight-heavy">Hello, world!</span>',
+        ),
+        ("<hello>", "&lt;hello&gt;"),
+    ],
+)
+def test_write(body: str, expect: str) -> None:
     style = StyleFragment(
         {
             "defaults": [],
@@ -64,8 +74,8 @@ def test_write() -> None:
         }
     )
     writer = StringIO()
-    BodyFragment("\033[1mHello, world!\033[22m", style).write(writer)
-    assert writer.getvalue() == '<span class="weight-heavy">Hello, world!</span>'
+    BodyFragment(body, style).write(writer)
+    assert writer.getvalue() == expect
 
 
 def test_write__no_formatting() -> None:
