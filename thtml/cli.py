@@ -1,3 +1,4 @@
+from pathlib import Path
 from tempfile import TemporaryFile
 from typing import IO, Optional, Union
 
@@ -8,7 +9,7 @@ from thtml.options import Scope
 from thtml.scopes import ScopeHtmlParser
 from thtml.themes import load_package_theme
 from thtml.theming import StyleFragment, Theme
-from pathlib import Path
+
 
 def load_theme(source: Optional[str]) -> Theme:
     if source is None:
