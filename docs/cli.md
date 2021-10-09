@@ -45,7 +45,15 @@ echo "Hello, world!" | thtml --open
 
 ## Custom theme
 
-Use a custom [theme](theme.md) by adding the `-t` or `--theme` argument.
+Use a custom [theme](themes.md) by adding the `-t` or `--theme` argument.
+
+For example, to use Google Fonts to support additional styles:
+
+```bash
+echo "Hello, world!" | thtml --theme google-fonts
+```
+
+To provide your own [custom theme](custom-themes.md):
 
 ```bash
 echo "Hello, world!" | thtml --theme custom.yml

@@ -8,14 +8,16 @@ from thtml.options import Scope
 from thtml.scopes import ScopeHtmlParser
 from thtml.themes import load_package_theme
 from thtml.theming import StyleFragment, Theme
-
+from pathlib import Path
 
 def load_theme(source: Optional[str]) -> Theme:
     if source is None:
-        theme_dict = load_package_theme()
-    else:
+        theme_dict = load_package_theme("default.yml")
+    elif Path(source).exists():
         with open(source, "r") as t:
             theme_dict = safe_load(t)
+    else:
+        theme_dict = load_package_theme(source + ".yml")
 
     # Set any missing defaults:
     theme_dict["classes"] = theme_dict.get("classes", [])
