@@ -44,8 +44,8 @@ setup(
     },
     include_package_data=True,
     install_requires=[
-        "ansiscape",
-        "naughtty",
+        "ansiscape>=1.0.0",
+        "naughtty>=1.0.0",
         "pyyaml",
     ],
     license="MIT",

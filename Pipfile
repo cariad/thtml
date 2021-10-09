@@ -4,8 +4,8 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-ansiscape = "==1.0.0a2"
-naughtty = "==1.0.0a2"
+ansiscape = "~=1.0"
+naughtty = "~=1.0"
 
 [dev-packages]
 black = "==21.9b0"
