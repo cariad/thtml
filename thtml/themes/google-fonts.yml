@@ -4,16 +4,16 @@ defaults:
   # The first class in this list will hold all the other variables that we need
   # to declare for a render.
   - name: thtml
+    headers:
+      - "@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400&display=swap');"
     variables:
+      - default-font
       - white
     styles:
       background: "#101013"
       border-radius: 0.5rem
       color: var(--white)
-
-      # Thanks! https://css-tricks.com/snippets/css/font-stacks/
-      font-family: Fira Code, Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
-
+      font-family: var(--default-font)
       letter-spacing: 0.03rem
       margin-left: auto
       margin-right: auto
@@ -28,6 +28,7 @@ defaults:
 # is added that uses them.
 variables:
   black: "#000"
+  default-font: "'Roboto Mono'"
   white: "#CCC"
   blue: "#00C"
   bright-black: "#888"
@@ -137,9 +138,76 @@ classes:
     variables:
       - yellow
 
+  - name: calligraphy-blackletter
+    headers:
+      - "@import url('https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap');"
+    styles:
+      font-family: UnifrakturMaguntia
+      font-size: 1.2rem
+
   - name: calligraphy-italic
+    headers:
+      - "@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@1,400&display=swap');"
     styles:
       font-style: italic
+
+  - name: font-alt-0
+    headers:
+      - "@import url('https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap');"
+    styles:
+      font-family: "'Syne Mono'"
+
+  - name: font-alt-1
+    headers:
+      - "@import url('https://fonts.googleapis.com/css2?family=Nova+Mono&display=swap');"
+    styles:
+      font-family: "'Nova Mono'"
+
+  - name: font-alt-2
+    headers:
+      - "@import url('https://fonts.googleapis.com/css2?family=Xanh+Mono&display=swap');"
+    styles:
+      font-family: "'Xanh Mono'"
+
+  - name: font-alt-3
+    headers:
+      - "@import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap');"
+    styles:
+      font-family: "'Major Mono Display'"
+
+  - name: font-alt-4
+    headers:
+      - "@import url('https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap');"
+    styles:
+      font-family: "'Cutive Mono'"
+
+  - name: font-alt-5
+    headers:
+      - "@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');"
+    styles:
+      font-family: "'VT323'"
+
+  - name: font-alt-6
+    headers:
+      - "@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap');"
+    styles:
+      font-family: "'Nanum Gothic Coding'"
+
+  - name: font-alt-7
+    headers:
+      - "@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');"
+    styles:
+      font-family: "'Share Tech Mono'"
+
+  - name: ont-alt-8
+    headers:
+      - "@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap');"
+    styles:
+      font-family: "'Ubuntu Mono'"
+
+  - name: font-default
+    styles:
+      font-family: var(--default-font)
 
   - name: foreground-black
     styles:
@@ -311,20 +379,26 @@ classes:
       padding-right: 0.4rem
 
   - name: proportional-spacing-true
+    headers:
+      - "@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;1,300;0,400;1,400;0,700;1,700&display=swap');"
     styles:
-      font-family: sans-serif
+      font-family: Roboto, sans-serif
 
   - name: strike-true
     styles:
       text-decoration: line-through
 
   - name: weight-heavy
+    headers:
+      - "@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,700;1,700&display=swap');"
     styles:
-      font-weight: bold
+      font-weight: 700
 
   - name: weight-light
+    headers:
+      - "@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;1,300&display=swap');"
     styles:
-      font-weight: light
+      font-weight: 300
 
   - name: conceal-true
     styles:
@@ -334,8 +408,6 @@ classes:
     styles:
       background: var(--white)
       color: var(--black)
-    variables:
-      - black
 
   - name: overline-true
     styles:

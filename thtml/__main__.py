@@ -12,7 +12,11 @@ from thtml.options import Scope
 
 
 def cli_entry() -> None:
-    parser = ArgumentParser(description="Converts text to HTML.", add_help=False)
+    parser = ArgumentParser(
+        add_help=False,
+        description="Converts text to HTML.",
+        epilog="Made with love by Cariad Eccleston: https://github.com/cariad/thtml",
+    )
 
     parser.add_argument(
         "-o",
@@ -32,7 +36,7 @@ def cli_entry() -> None:
     parser.add_argument(
         "-t",
         "--theme",
-        help="path to custom theme YAML file",
+        help="name (default, google-fonts, plain) or path to custom theme YAML file",
     )
 
     parser.add_argument(
@@ -47,6 +51,10 @@ def cli_entry() -> None:
         print(get_version())
         return
 
+    if command and command[0] == "--help":
+        parser.print_help()
+        exit(0)
+
     if command:
         ntty = NaughTTY(command)
         ntty.execute()
@@ -56,7 +64,7 @@ def cli_entry() -> None:
         body = stdin.read()
 
     if args.open:
-        with NamedTemporaryFile("a+") as temp:
+        with NamedTemporaryFile("a+", suffix=".html") as temp:
             write_html(
                 text=body,
                 scope=Scope(args.scope),

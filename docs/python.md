@@ -18,7 +18,7 @@ with open("hello.html", "w") as writer:
     write_html("\033[1mHello, world!\033[22m", writer, scope=Scope.FRAGMENT)
 ```
 
-To use a custom [theme](theme.md):
+To use a custom [theme](themes.md), pass a `theme` argument. This can be a name or a path:
 
 ```python
 from thtml import write_html, Theme

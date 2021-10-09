@@ -1,8 +1,8 @@
 # Custom theming
 
-A custom theme cane be specified as a dictionary in Python or YAML file on the command line.
+A custom theme can be specified as a dictionary in Python or YAML file on the command line.
 
-The following scheme applies whether you're passing a dictionary or a YAML file.
+The following schema applies whether you're passing a dictionary or a YAML file.
 
 ## Default theme
 
