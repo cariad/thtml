@@ -1,4 +1,6 @@
 include thtml/scopes/document.html
 include thtml/scopes/fragment.html
 include thtml/themes/default.yml
+include thtml/themes/google-fonts.yml
+include thtml/themes/plain.yml
 include thtml/version/VERSION
