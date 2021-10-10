@@ -113,6 +113,8 @@ classes:
   - name: background-white
     styles:
       background: var(--white)
+    variables:
+      - white
 
   - name: background-yellow
     styles:
@@ -142,6 +144,8 @@ classes:
     styles:
       border-color: var(--white)
       color: var(--white)
+    variables:
+      - white
 
   - name: foreground-yellow
     styles:
@@ -238,6 +242,8 @@ classes:
     styles:
       border-color: var(--white)
       color: var(--white)
+    variables:
+      - white
 
   - name: frame-box
     # I don't know what this means, so here's a border.
@@ -307,6 +313,7 @@ classes:
       color: var(--black)
     variables:
       - black
+      - white
 
   - name: overline-true
     styles:
