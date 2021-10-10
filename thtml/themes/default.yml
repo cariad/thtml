@@ -12,7 +12,7 @@ defaults:
       color: var(--white)
 
       # Thanks! https://css-tricks.com/snippets/css/font-stacks/
-      font-family: Fira Code, Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
+      font-family: Fira Code, Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace
 
       letter-spacing: 0.03rem
       margin-left: auto
@@ -48,6 +48,8 @@ classes:
   - name: background-black
     styles:
       background: var(--black)
+    variables:
+      - black
 
   - name: background-blue
     styles:
@@ -145,6 +147,8 @@ classes:
     styles:
       border-color: var(--black)
       color: var(--black)
+    variables:
+      - black
 
   - name: foreground-blue
     styles:
