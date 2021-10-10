@@ -19,7 +19,7 @@ from thtml.options import Scope
         ),
         (
             "plain",
-            """<style type="text/css">.thtml { --black: #000; --white: #CCC; } .foreground-black { border-color: var(--black); color: var(--black); } .foreground-white { border-color: var(--white); color: var(--white); } .foreground-default { border-color: var(--white); color: var(--white); }</style><pre class="nohighlight thtml"><code class="thtml-code"><span class="foreground-black">Black, </span><span class="foreground-white">White!</span><span class="foreground-default"></span></code></pre>""",
+            """<style type="text/css">.thtml { --black: #000; --white: #CCC; } .foreground-black { border-color: var(--black); color: var(--black); } .foreground-white { border-color: var(--white); color: var(--white); }</style><pre class="nohighlight thtml"><code class="thtml-code"><span class="foreground-black">Black, </span><span class="foreground-white">White!</span></code></pre>""",
         ),
     ],
 )

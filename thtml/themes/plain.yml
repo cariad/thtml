@@ -86,12 +86,6 @@ classes:
     variables:
       - cyan
 
-  - name: background-default
-    styles:
-      background: var(--black)
-    variables:
-      - black
-
   - name: background-green
     styles:
       background: var(--green)
@@ -139,13 +133,6 @@ classes:
       color: var(--blue)
     variables:
       - blue
-
-  - name: foreground-default
-    styles:
-      border-color: var(--white)
-      color: var(--white)
-    variables:
-      - white
 
   - name: foreground-yellow
     styles:
