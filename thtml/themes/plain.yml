@@ -23,6 +23,8 @@ classes:
   - name: background-black
     styles:
       background: var(--black)
+    variables:
+      - black
 
   - name: background-blue
     styles:
@@ -87,6 +89,8 @@ classes:
   - name: background-default
     styles:
       background: var(--black)
+    variables:
+      - black
 
   - name: background-green
     styles:
@@ -124,6 +128,8 @@ classes:
     styles:
       border-color: var(--black)
       color: var(--black)
+    variables:
+      - black
 
   - name: foreground-blue
     styles:
@@ -299,6 +305,8 @@ classes:
     styles:
       background: var(--white)
       color: var(--black)
+    variables:
+      - black
 
   - name: overline-true
     styles:
